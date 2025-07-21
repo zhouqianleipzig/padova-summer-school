@@ -1,0 +1,53 @@
+---
+title: "Hallo"
+author: "Qian Zhou"
+date: today
+format: 
+  html:
+    self-contained: true     # 1
+    toc: true                # 2   
+    toc-title: My contents   # 3
+    toc-location: left       # 4
+    frontsize: 32px
+    theme:
+      light: minty
+      dark: superhero
+lang: it                    # 5
+---
+
+# First level
+
+I met you <https://quarto.org>.
+
+## Second level
+
+I miss you.
+
+### Third level
+
+i DO MISS you
+
+#### Fourth level
+
+*I* **do** ***do*** do do met you
+
+##### Hahahahaha
+
+Frankly^2^ speaking, `i do not miss you`
+
+My researchgate is [here](https://www.researchgate.net/profile/Patrick_Ragert)
+
+![this is his image](patrick.jpg)
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this 
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
