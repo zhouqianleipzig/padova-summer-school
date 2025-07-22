@@ -4,23 +4,67 @@ author: "Qian Zhou"
 date: today
 format: 
   html:
-    self-contained: true     # 1
-    toc: true                # 2   
-    toc-title: My contents   # 3
-    toc-location: left       # 4
+    toc: true                  
+    toc-title: My contents   
+    toc-location: left      
     frontsize: 32px
     theme:
       light: minty
       dark: superhero
-lang: en                    # 5
+    grid:
+      sidebar-width: 300px
+      body-width: 900px
+      margin-width: 500px
+      gutter-width: 1.5rem
+lang: en
+citation-location: margin
 bibliography: reference.bib
 ---
 Here you can see [HTML](hallo.html)
 
 
+`ggplot2` is an R [@rsoft] package developed by [@ggplot]. @epifania2024 published an interesting paper on Linear Mixed Effects Models. 
+
+:::{.column-margin}
+I want this picture displayed in the margin 
+
+:::
+
+:::: {.columns}
+
+
+::: {.column width="50%"}
+
+eeg!
+
+:::
+
+::: {.column width="50%"}
+
+fnirs!
+:::
+
+::::
+
+
+::: {.panel-tabset}
+
+## Aim
+
+the nature of neuroplacity in human
+
+## Methods
+
+behavior, fnirs, eeg, tdcs
+
+## Results
+
+the brain support the motor learning
+
+:::
 # First level
 
-I miss you.@kaminski2013effect
+I miss you.
 
 ## Second level
 
@@ -44,4 +88,26 @@ My researchgate is [here](https://www.researchgate.net/profile/Patrick_Ragert)
 This is science.
 
 ![this is his image](images/patrick.png)
-.
+
+::: {.callout-note}
+To say something general
+:::
+
+::: {.callout-tip}
+## I'm a title!
+
+Maybe a tip :)
+:::
+
+::: {.callout-caution}
+## Pay attention!
+
+Please pay attention to whatever it is written here
+:::
+
+
+::: {.callout-warning}
+Just saying you should be careful
+:::
+
+
