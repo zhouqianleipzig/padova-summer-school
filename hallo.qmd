@@ -12,14 +12,15 @@ format:
     theme:
       light: minty
       dark: superhero
-lang: it                    # 5
+lang: en                    # 5
+bibliography: reference.bib
 ---
 Here you can see [HTML](hallo.html)
 
 
 # First level
 
-I met you <https://quarto.org>.
+I miss you.@kaminski2013effect
 
 ## Second level
 
@@ -31,13 +32,16 @@ i DO MISS you
 
 #### Fourth level
 
-*I* **do** ***do*** do do met you
+*I* **do** ***do*** do do miss you
 
 ##### Hahahahaha
 
 Frankly^2^ speaking, `i do not miss you`
 
 My researchgate is [here](https://www.researchgate.net/profile/Patrick_Ragert)
+
+# welcome to the phd
+This is science.
 
 ![this is his image](images/patrick.png)
 .
