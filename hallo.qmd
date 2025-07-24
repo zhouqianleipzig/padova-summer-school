@@ -19,8 +19,165 @@ format:
 lang: en
 citation-location: margin
 bibliography: reference.bib
+warning: false
+code-annotations: below
 ---
-Here you can see [HTML](hallo.html)
+
+```{r}
+#| include: false
+
+library(ggplot2)
+library(DT)
+
+```
+
+
+
+
+
+@fig-plotsModels illustrates different things. @fig-plotsModels-1 illustrates this, @fig-plotsModels-2 illustrates that and so on
+```{r}
+#| label: fig-plotsModels
+#| column: screen-inset-shaded
+#| layout-nrow: 2
+#| layout-ncol: 2
+#| fig-cap: "One dataset, different models" 
+#| fig-subcap:
+#|   - "The data"
+#|   - "Polynomial"
+#|   - "Linear Model"
+#|   - "GLM with Poisson" 
+
+library(ggplot2)
+ggplot(mtcars,
+       aes(mpg, hp, size = gear)) +
+  geom_point()
+
+ggplot(mtcars,
+       aes(mpg, hp, size = gear)) +
+  geom_point() + 
+  geom_smooth()
+
+ggplot(mtcars,
+       aes(mpg, hp, size = gear)) +
+  geom_point() + 
+  geom_smooth(method = "lm")
+ggplot(mtcars,
+       aes(mpg, hp, size = gear)) +
+  geom_point() + 
+  geom_smooth(method = "glm", method.args = list(family = "poisson"))
+
+
+```
+
+
+```{r}
+#| eval: true
+#| column: screen-inset-shaded
+#| layout-ncol: 2
+
+ggplot(mtcars, 
+       aes(hp, mpg, color = factor(am))) +
+  geom_point() +
+  geom_smooth(formula = y ~ x, method = "loess") +
+  theme(legend.position = 'bottom')
+
+datatable(mtcars,
+  options = list(pageLength = 5))
+```
+
+
+
+```{r}
+#| label: tbl-tables
+#| tbl-cap: "Datasets"
+#| tbl-subcap: 
+#|   - "Cars"
+#|   - "Pressure"
+#| layout-ncol: 2
+library(kableExtra)
+kable(head(cars))
+
+kable(head(pressure))
+```
+
+
+````{r}
+data =read.csv('data/dataset.csv')
+
+head = data
+
+class(data)
+
+x = data$anxiety
+y= data$flexibility
+plot(x, y)
+
+
+summary(data)
+
+sum(is.na(data))
+````
+
+
+@fig-motortransfer illustrates a plot
+
+```{r}
+#| out-width: 30%
+#| fig-align: center
+#| fig-cap: Fig. motor transfer between expert and nonathlets
+#| fig-cap-location: bottom
+#| label: fig-motortransfer
+knitr::include_graphics("images/table.png")
+
+```
+
+
+@tbl-motor illustrates a table
+````{r}
+#| echo: fenced
+#| label: tbl-motor 
+#| tbl-cap: "Iris Data"
+library(kableExtra)
+kable(mtcars) %>%
+  scroll_box(height = "450px", width = "100%")
+````
+
+
+
+```{r}
+#| lst-label: lst-car
+#| lst-cap: Basic use of the plot() function
+
+plot(cars)
+```
+@lst-car illustrates a basic use of the function plot()
+
+
+@eq-sd illustrates how to standardize a value
+$$
+  z = \frac{x_i - \bar{x}}{s}
+$$ {#eq-sd}
+
+````{r}
+library(ggplot2)
+#| out-width: 80%                                
+#| fig-align: right                            
+#| fig-cap: A graph from `mtcars`
+#| fig-cap-location: bottom
+#| label: fig-mtcars1
+ggplot(mtcars, aes(hp, mpg, color = factor(am))) +
+  geom_point() +
+  geom_smooth(formula = y ~ x, method = "loess") +
+  theme(legend.position = 'bottom')
+
+
+````
+
+
+
+
+
 
 
 `ggplot2` is an R [@rsoft] package developed by [@ggplot]. @epifania2024 published an interesting paper on Linear Mixed Effects Models. 
@@ -109,5 +266,29 @@ Please pay attention to whatever it is written here
 ::: {.callout-warning}
 Just saying you should be careful
 :::
+
+
+````{r}
+5*5
+
+5^2
+
+
+
+
+````
+
+
+````{r}
+#|echo: true
+mtcars %>%                               # <1>
+  ggplot( aes(mpg, hp, size = gear)) +   # <2>
+  geom_point() +                         # <3>    
+  geom_smooth(method = "lm")             # <4>
+````
+1. This does that
+2. This other thing is this
+3. And look at this!
+4. Please have mercy
 
 
