@@ -9,6 +9,8 @@ qian zhou see [HTML](hallo.html).
 
 
 ## presentation
-presentation see [HTML](presentation.html).
+presentation see [ppt](presentation.html).
 
 
+## presentation in pfd
+presentation see [pdf](presentationpfd.html).

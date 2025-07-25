@@ -1,14 +1,227 @@
 ---
-title: "my first ppt"
-author: 'Qian'
-format: revealjs
+title: "My first study"
+author:
+  name: "Qian Zhou"
+  email: qian.zhou@uni-leipzig.de
+affiliation: " summer school"
+format: 
+  revealjs: 
+    theme: [serif, my first.scss]
+    self-contained: true
+    scrollable: true           
+    logo: "image/patrick.png"
+    footer: "Leipzig University"
+    incremental: true
+    slide-number:  c/t
+    show-slide-number: all
+server: shiny
 ---
+```{r}
+library(shiny) # use it
+library(ggplot2)
+library(tidyverse)
+```
 
-# Introduction
+# Introduction {footer="false"}
 
-Hallo, This is Qian.
+. . . 
 
-## This is a slide 
-My topic is related in motor learning.
+motor learning
+
+. . .
+
+## Conception{.scrollable}
+“A set of processes associated with practice or experience leading to relatively permanent changes in the capability for movement.”
+— Schmidt & Lee (2011), Motor Control and Learning
+
+
+## Different field
+* sport
+* medicine
+* patient
+* hospital
+* ......
+
+
+
+## 
+:::: {.columns}
+
+::: {.column width="40%"}
+I want some text in the left column
+:::
+
+::: {.column width="60%"}
+And a pciture in the right one 
+
+
+:::
+
+::::
+
+
+## Results1
+![](images/table1.png){.absolute top=200 left=0 width="350" height="400"}
+
+![](images/table2.png){.absolute top=5 right=120 width="500" height="250"}
+
+![](images/table3.png){.absolute bottom=0 right=100 width="500" height="400"}
+
+## Results2
+::: {.fragment .highlight-red}
+These results are important！
+:::
+
+:::{.r-stack}
+::: {.fragment .fade-in-then-out}
+![](images/table1.png){width="350" height="300"}
+:::
+
+::: {.fragment .fade-in-then-out}
+![](images/table2.png){width="450" height="250"}
+:::
+
+
+::: {.fragment .fade-up}
+![](images/table3.png){width="350" height="300"}
+:::
+:::
+
+
+
+
+## Disccusion
+My blood brother is an immigrant, a beautiful immigrant ^[This song is [Danny Nedelko](https://youtu.be/QkF_G-RF66M?si=F11TuQYUtWVz0L9G) by IDLES]
+
+
+::: aside
+Fear leads to panic, panic leads to pain
+
+Pain leads to anger, anger leads to hate
+
+Yeah, yeah, yeah, yeah, ah, ah, ah, ah
+
+Yeah, yeah, yeah, yeah, ah, ah, ah, ah
+
+[Danny Nedelko](https://youtu.be/QkF_G-RF66M?si=F11TuQYUtWVz0L9G)
+:::
+
+
+## Code
+```{r}
+#| fig-align: center
+#| code-line-numbers: "|1|1-3|2,3|"
+#| eval: true
+#| echo: true
+x = c(1:20)
+y = c(21:40)
+plot(x,y)             
+```
+
+## {auto-animate="true"}
+
+```{r}
+#| echo: true
+# Create a scatterplot with a smoothing function
+ggplot(mtcars,
+       aes(mpg, hp, size = gear)) +
+  geom_point() 
+```
+
+## {auto-animate="true"}
+
+```{r}
+#| echo: true
+```
+
+
+## Code3
+```{r}
+#| fig-align: center
+#| output-location: slide
+#| code-line-numbers: "|3|"
+#| echo: true
+
+mtcars %>%                               
+  ggplot( aes(mpg, hp, size = gear)) +   
+  geom_point() +                             
+  geom_smooth(method = "lm")        
+```
+
+````{r}
+ui = fluidPage(
+selectInput(inputId = "mySelection", 
+            label = h3("Select box"),
+    choices = list("Choice 1" = 1, "Choice 2" = 2, "Choice 3" = 3),
+    selected = 1), 
+  
+  verbatimTextOutput(
+  outputId = "myOutput"
+)
+  
+)
+
+server = function(input, output) {
+  output$myOutput = renderText({
+    paste(paste("This is my choice"), input$mySelection)
+  })
+}
+
+shinyApp(ui, server)  
+
+````
+
+
+```{r}
+#| panel: sidebar
+#| eval: false
+selectInput(inputId = "dataset", # name of the input (for the server)
+                  label = "Choose a dataset:", # name of the input (for the users)
+                  choices = c("rock", "pressure", "cars")) # options (for  both 
+                                                          # users & server)
+```
+
+
+```{r}
+#| panel: fill
+#| eval: false
+#| out-width: 30%
+#| fig-align: center
+plotOutput("graph" )
+verbatimTextOutput("summary")
+
+```
+
+
+```{r}
+#| eval: false
+#| context: server
+
+output$graph <- renderPlot({
+    if(input$dataset == "rock"){ # call the input and its options with their label
+      data <- rock
+    } else if (input$dataset == "pressure" ){
+      data <- pressure
+    } else if (input$dataset == "cars") {
+      data <- cars
+    }
+    plot(data[, c(1:2)])
+  })
+
+output$summary <- renderPrint({
+    if(input$dataset == "rock"){
+      data <- rock
+    } else if (input$dataset == "pressure" ){
+      data <- pressure
+    } else if (input$dataset == "cars") {
+      data <- cars
+    }
+    summary(data[, c(1:2)])
+  })
+
+```
+
+
+
 
 

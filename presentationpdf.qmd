@@ -1,0 +1,72 @@
+---
+title: "my presentation in pdf"
+format:
+  beamer:
+    slide-level: 3
+    theme: Berlin
+    colortheme: crane
+    toc: true
+    toc-title: My rearch
+    innertheme: circles
+code-annotations: below
+---
+
+## Introduction
+:::: {.columns}
+::: {.column width="40%"}
+\Large motor performance 
+:::
+::: {.column width="60%"}
+\Large motor learning
+:::
+::::
+
+## Method
+
+```{r}
+#| eval: true 
+#| echo: true 
+
+x = c(1:20) # <1>
+y = x^2 # <2>
+z = x * y # <3>
+```
+1. process
+2. appearance
+3. result
+
+## Results
+@fig-table1 illustrates related information
+```{r}
+#| out-width: 60%
+#| fig-align: center
+#| fig-cap: "table1"
+#| label: fig-table1
+knitr::include_graphics("images/table1.png")
+```
+
+## plots
+@fig-plot illustrated the relationship 
+```{r}
+#| eval: true 
+#| echo: true
+#| label: fig-plot
+#| output-location: slide 
+
+x = c(1:20) # <1>
+y = x^2 # <2>
+plot(x,y) # <3>
+```
+
+
+
+
+## Disscussion
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+
